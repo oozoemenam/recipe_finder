@@ -1,6 +1,6 @@
 # recipe_finder
 
-A new Flutter project.
+Recipe Finder. #FlutterApprentice
 
 ## Getting Started
 
