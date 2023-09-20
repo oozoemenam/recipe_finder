@@ -1,10 +1,21 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
 
 import 'ui/main_screen.dart';
 
 Future<void> main() async {
+  _setupLogging();
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
+}
+
+void _setupLogging() {
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((event) {
+    log('${event.level.name}: ${event.time}: ${event.message}');
+  });
 }
 
 class MyApp extends StatelessWidget {
