@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../data/models/ingredient.dart';
+
 part 'recipe_model.g.dart';
 
 @JsonSerializable()
@@ -98,4 +100,17 @@ String getWeight(double? weight) {
     return '0g';
   }
   return '${weight.floor()}g';
+}
+
+List<Ingredient> convertIngredients(List<ApiIngredients> apiIngredients) {
+  final ingredients = <Ingredient>[];
+  for (final ingredient in apiIngredients) {
+    ingredients.add(
+      Ingredient(
+        name: ingredient.name,
+        weight: ingredient.weight,
+      ),
+    );
+  }
+  return ingredients;
 }
