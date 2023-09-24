@@ -7,8 +7,9 @@ import 'package:http/http.dart' as http;
 
 import '../network/model_response.dart';
 import '../network/recipe_model.dart';
+import '../network/service_interface.dart';
 
-class MockService {
+class MockService implements ServiceInterface {
   late ApiRecipeQuery _currentRecipes1;
   late ApiRecipeQuery _currentRecipes2;
   Random nextRecipe = Random();
@@ -24,6 +25,7 @@ class MockService {
     _currentRecipes2 = ApiRecipeQuery.fromJson(jsonDecode(jsonString));
   }
 
+  @override
   Future<Response<Result<ApiRecipeQuery>>> queryRecipes(
       String query,
       int from,

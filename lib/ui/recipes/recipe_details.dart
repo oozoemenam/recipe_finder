@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../data/in_memory_repository.dart';
 import '../../data/models/models.dart';
+import '../../data/repository.dart';
 import '../../network/recipe_model.dart';
 import '../colors.dart';
 
@@ -15,7 +16,7 @@ class RecipeDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final repository = Provider.of<InMemoryRepository>(context);
+    final repository = Provider.of<Repository>(context);
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
